@@ -55,6 +55,11 @@ describe Modis::Index do
     expect(models.first.name).to eq('Ian')
   end
 
+  it 'find_by by index' do
+    model = IndexSpec::MockModel.find_by(name: 'Ian')
+    expect(model.name).to eq('Ian')
+  end
+
   it 'finds multiple matches' do
     IndexSpec::MockModel.create!(name: 'Ian')
     models = IndexSpec::MockModel.where(name: 'Ian')

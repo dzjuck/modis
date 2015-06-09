@@ -30,6 +30,10 @@ module Modis
         find_all(ids)
       end
 
+      def find_by(query)
+        where(query).first
+      end
+
       def index_for(attribute, value)
         Modis.with_connection do |redis|
           key = index_key(attribute, value)
